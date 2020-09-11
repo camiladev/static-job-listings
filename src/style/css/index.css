@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+/* Width max */
+/* Width max */
+/*Firt mobile */
+.App-header {
+  background-image: url("../../images/bg-header-mobile.svg");
+  background-color: #5ba4a4;
+  height: 156px; }
+
+.App-body {
+  background-color: #effafa;
+  height: 100vh; }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,29 @@
+@import 'base';
+
+$width-mobile: 375px; /* Width max */
+$width-desktop: 1440px; /* Width max */
+
+$color-primary: hsl(180, 29%, 50%);
+$color-background: hsl(180, 52%, 96%);
+$color-filter-tablets: hsl(180, 31%, 95%);
+$color-dark: hsl(180, 8%, 52%);
+$color-veryDark: hsl(180, 14%, 20%);
+
+$font-size: 15px;
+$font-family: 'Spartan', sans-serif;
+$font-weights: 500,700;
+
+$url-imageMobile: url('../../images/bg-header-mobile.svg');
+$url-imageDesktop: url('../../images/bg-header-desktop.svg');
+
+/*Firt mobile */
+.App-header {
+    background-image: $url-imageMobile;
+    background-color: $color-primary;
+    height: 156px;
+}
+
+.App-body{
+    background-color: $color-background;
+    height: 100vh;
+}
