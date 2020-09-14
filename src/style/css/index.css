@@ -18,7 +18,7 @@
 
 .App-body {
   background-color: #effafa;
-  height: 76vh;
+  /*height: 100vh - $height-header; ---> altura minima*/
   display: flex;
   justify-content: center;
   align-items: baseline; }
@@ -31,13 +31,17 @@ table {
   justify-content: center; }
 
 tbody {
+  height: auto;
+  width: 100%; }
+
+.jobRow {
+  display: flex;
+  flex-direction: column;
   border-left: 5px #5ba4a4 solid;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-  margin: 15px;
-  height: auto;
-  width: 100%; }
+  margin: 15px; }
 
 .company {
   font-weight: 700;

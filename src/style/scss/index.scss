@@ -33,7 +33,7 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
 
 .App-body{
     background-color: $color-background;
-    height: 100vh - $height-header;
+    /*height: 100vh - $height-header; ---> altura minima*/
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -48,13 +48,19 @@ table{
 }
 
 tbody{
+    height: auto;
+    width: 100%;
+}
+
+.jobRow{
+    display: flex;
+    flex-direction: column;
     border-left: 5px $color-primary solid;
     background-color: $color-background-tables;
     border-radius: 5px;
     padding: 10px;
     margin: 15px;
-    height: auto;
-    width: 100%;
+    
 }
 
 .company{
