@@ -7,13 +7,106 @@
 /* Width max */
 /* Width max */
 /*Firt mobile */
+* {
+  font-family: "Spartan", sans-serif;
+  font-size: 15px; }
+
 .App-header {
   background-image: url("../../images/bg-header-mobile.svg");
   background-color: #5ba4a4;
-  height: 156px; }
+  height: 24vh; }
 
 .App-body {
   background-color: #effafa;
-  height: 100vh; }
+  height: 76vh;
+  display: flex;
+  justify-content: center;
+  align-items: baseline; }
+
+.filterTable {
+  width: 100%; }
+
+table {
+  display: flex;
+  justify-content: center; }
+
+tbody {
+  border-left: 5px #5ba4a4 solid;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px;
+  height: auto;
+  width: 100%; }
+
+.company {
+  font-weight: 700;
+  font-size: 15px;
+  color: #5ba4a4; }
+
+.company .name {
+  padding-right: 15px; }
+
+.company .status {
+  color: #eef6f6;
+  height: 2em;
+  width: auto;
+  text-align: center; }
+
+.company .new {
+  background-color: #5ba4a4;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 10px; }
+
+.company .featured {
+  background-color: #2c3a3a;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 10px; }
+
+.position {
+  color: #2c3a3a;
+  font-weight: 700;
+  height: auto;
+  width: auto;
+  padding: 10px 0 10px 0;
+  display: flex; }
+
+.infos {
+  font-weight: 500;
+  color: #7b8e8e;
+  display: flex;
+  /* justify-content: space-around;
+   margin-left: -15px;*/ }
+
+.infos td {
+  padding-right: 10px; }
+
+.infos div {
+  margin-right: 10px;
+  height: 4px;
+  width: 4px;
+  margin-top: 2%;
+  background-color: #7b8e8e;
+  border-radius: 50%; }
+
+.line {
+  display: flex;
+  justify-content: center; }
+
+.line span {
+  height: 10px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1.8px #7b8e8e solid; }
+
+.filters td {
+  color: #5ba4a4;
+  font-weight: 700;
+  background-color: #eef6f6;
+  padding: 10px;
+  border-radius: 5px; }
 
 /*# sourceMappingURL=index.css.map */
