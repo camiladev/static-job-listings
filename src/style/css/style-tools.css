@@ -29,9 +29,9 @@ tbody {
 }
 
 
-.new{
+.news{
 
-	background-color: hsl(180, 29%, 50%)
+	background-color: hsl(180, 29%, 50%);
 	color: white;
 	border-radius: 20px;
 	padding-top: 10px;

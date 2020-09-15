@@ -26,87 +26,93 @@
 .filterTable {
   width: 100%; }
 
-table {
+.results-job {
   display: flex;
   justify-content: center; }
 
-tbody {
+.job-list {
   height: auto;
   width: 100%; }
 
-.jobRow {
+.job-border-left {
+  border-left: 5px #5ba4a4 solid; }
+
+.job-row {
   display: flex;
   flex-direction: column;
-  border-left: 5px #5ba4a4 solid;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-  margin: 15px; }
+  margin: 35px 15px 15px 15px; }
 
-.company {
+.inside-job {
   font-weight: 700;
   font-size: 15px;
   color: #5ba4a4; }
 
-.company .name {
+.logo-job {
+  display: flex;
+  margin-top: -2em; }
+
+.logo-job img {
+  width: 55px; }
+
+.content-job {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.content-job h1 {
   padding-right: 15px; }
 
-.company .status {
+.content-job span {
   color: #eef6f6;
   height: 2em;
   width: auto;
   text-align: center; }
 
-.company .new {
+.content-job .jobOffer-new {
   background-color: #5ba4a4;
   border-radius: 20px;
   padding: 10px;
   margin-right: 10px; }
 
-.company .featured {
+.content-job .jobOffer-featured {
   background-color: #2c3a3a;
   border-radius: 20px;
   padding: 10px;
   margin-right: 10px; }
 
-.position {
+.jobOffer-description {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1.8px #7b8e8e solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px; }
+
+.jobOffer-description h2 {
   color: #2c3a3a;
   font-weight: 700;
-  height: auto;
-  width: auto;
-  padding: 10px 0 10px 0;
-  display: flex; }
+  padding: 10px 0 10px 0; }
 
-.infos {
+.job-info {
   font-weight: 500;
   color: #7b8e8e;
-  display: flex;
-  /* justify-content: space-around;
-   margin-left: -15px;*/ }
+  display: flex; }
 
-.infos td {
-  padding-right: 10px; }
+.job-info .li-default {
+  list-style: none; }
 
-.infos div {
-  margin-right: 10px;
-  height: 4px;
-  width: 4px;
-  margin-top: 2%;
-  background-color: #7b8e8e;
-  border-radius: 50%; }
+.job-info li {
+  padding-right: 25px;
+  list-style: disc; }
 
-.line {
-  display: flex;
-  justify-content: center; }
+.jobOffer-requisites {
+  display: grid;
+  gap: 0.6em;
+  grid-template-columns: repeat(3, auto); }
 
-.line span {
-  height: 10px;
-  width: 100%;
-  display: flex;
-  margin-bottom: 10px;
-  border-bottom: 1.8px #7b8e8e solid; }
-
-.filters td {
+.jobOffer-requisites span {
   color: #5ba4a4;
   font-weight: 700;
   background-color: #eef6f6;

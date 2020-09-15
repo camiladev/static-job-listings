@@ -7,40 +7,63 @@ import jobsRepositories from '../src/repositories/jobs';
 class ListJobRow extends React.Component {
   render (){
     const jobList = this.props.jobList;
-    const logo = jobList.logo;
-    console.log("logo: " + logo)
+    const logo = require(`${jobList.logo}`);
+        
+    const languages = jobList.languages;
+    const tools = jobList.tools;
+
+    const resultsNews = jobList.new;
+    var news = "";
+    var newsClass = "";
+
+    const resultsFeat = jobList.featured;
+    var feat = "";
+    var featClass = "";
+    var featBorder = "";
+
+    if(resultsNews){
+        news = "NEW!";
+        newsClass = "jobOffer-new";
+    }
+
+    if(resultsFeat){
+      feat = "FEATURED";
+      featClass = "jobOffer-featured";
+      featBorder = "job-border-left job-row";
+    }else{
+      featBorder = "job-row";
+    }
+
+       
     return (
-      <tr className="jobRow">
-        <tr className="logo">
-            <div>
-                <img src={logo} alt="Logo" width="55" height="55" />
-            </div>
-        </tr>
-        <tr className="company">
-                  <td className="name">{jobList.company}</td>
-                  <td className="status"> {/* Verificar se new ou featured é true */}
-                    <span className="new">New!</span>
-                    <span className="featured">Featured</span>
-                    
-                  </td>
-                  
-                </tr>
-                <tr className="position">{jobList.position}</tr>
-                <tr className="infos">
-                  <td>{jobList.postedAt}</td>
-                  <div></div>
-                  <td>{jobList.contract}</td>
-                  <div></div>
-                  <td>{jobList.location}</td>
-                </tr>
-                <tr className="line"><span></span></tr>
-                <tr className="filters"> {/* deve listar todas as linguagens, role, level e tools */}
-                  <td>Languages</td>
-                  <td>Tools</td>
-                  <td>Role</td>
-                  <td>Level</td>
-                </tr>
-      </tr>
+      <li className={featBorder}>
+          <div className="inside-job">
+              <div className="logo-job">
+                <img src={logo} />
+              </div>
+              <div className="content-job">
+                  <h1>{jobList.company}</h1>
+                  <span className={newsClass}>{news}</span>
+                  <span className={featClass}>{feat}</span>
+              </div>
+              
+              <div className="jobOffer-description">
+                <h2>{jobList.position}</h2>
+                <ul className="job-info">
+                  <li className="li-default">{jobList.postedAt}</li>
+                  <li>{jobList.contract}</li>
+                  <li>{jobList.location}</li>
+                </ul>
+              </div>
+
+              <div className="jobOffer-requisites">
+                <span className="label-skills">{languages}</span>
+                <span className="label-skills">{tools}</span>
+                <span className="label-skills">{jobList.role}</span>
+                <span className="label-skills">{jobList.level}</span>
+              </div>
+          </div>
+      </li>
     );
   }
 }
@@ -58,11 +81,11 @@ class JobListTable extends React.Component {
     });
 
     return (
-      <table>
-        <tbody>
-          {rows}
-        </tbody>
-    </table>
+      <div className="results-job">
+        <ul className="job-list">
+            {rows}
+        </ul>
+    </div>
     )
   }
 }

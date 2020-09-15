@@ -38,56 +38,76 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
     justify-content: center;
     align-items: baseline;
 }
+
 .filterTable{
     width: 100%;
 }
-table{
+
+.results-job{
     display: flex;
     justify-content: center;
     
 }
 
-tbody{
+.job-list{
     height: auto;
     width: 100%;
 }
 
-.jobRow{
-    display: flex;
-    flex-direction: column;
+.job-border-left{
     border-left: 5px $color-primary solid;
+}
+
+.job-row{
+    display: flex;
+    flex-direction: column;    
     background-color: $color-background-tables;
     border-radius: 5px;
     padding: 10px;
-    margin: 15px;
+    margin: 35px 15px 15px 15px;
     
 }
 
-.company{
+.inside-job{
     font-weight: $font-weights-700;
     font-size: $font-size;
     color: $color-primary;
 }
 
-.company .name{
+.logo-job{
+    display: flex;
+    margin-top: -2em;
+}
+
+.logo-job img{
+    width: 55px;
+}
+
+.content-job{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content-job h1{
     padding-right: 15px;
 }
 
-.company .status{
+.content-job span{
     color: $color-filter-tablets;
     height: 2em;
     width: auto;
     text-align: center;
 }
 
-.company .new{
+.content-job .jobOffer-new{
     background-color: $color-primary;    
     border-radius: 20px;
     padding: 10px;
     margin-right: 10px;
 }
 
-.company .featured{
+.content-job .jobOffer-featured{
     background-color: $color-veryDark;
     border-radius: 20px;
     padding: 10px;
@@ -95,51 +115,43 @@ tbody{
     
 }
 
-.position{
-    color: $color-veryDark;
-    font-weight: $font-weights-700;
-    height: auto;
-    width: auto;
-    padding: 10px 0 10px 0;
+.jobOffer-description{
     display: flex;
+    flex-direction: column;
+    border-bottom: 1.8px $color-dark solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-.infos {
+.jobOffer-description h2{
+    color: $color-veryDark;
+    font-weight: $font-weights-700;
+    padding: 10px 0 10px 0;
+}
+
+.job-info {
     font-weight: $font-weights-500;
     color:$color-dark;
     display: flex;
-   /* justify-content: space-around;
-    margin-left: -15px;*/
+
 }
 
-.infos td{
-    padding-right: 10px;
+.job-info .li-default{
+    list-style: none;
 }
 
-.infos div{
-    
-    margin-right: 10px;
-    height: 4px;
-    width: 4px;
-    margin-top: 2%;
-    background-color: $color-dark;
-    border-radius: 50%;
+.job-info li{
+    padding-right: 25px;
+    list-style: disc;
 }
 
-.line{
-    display: flex;
-    justify-content: center;
-}
 
-.line span{
-    height: 10px;
-    width: 100%;
-    display: flex;
-    margin-bottom: 10px;
-    border-bottom: 1.8px $color-dark solid;
+.jobOffer-requisites{
+    display: grid;
+    gap: 0.6em;
+    grid-template-columns: repeat(3, auto);
 }
-
-.filters td{
+.jobOffer-requisites span{
     color: $color-primary;
     font-weight: $font-weights-700;
     background-color:$color-filter-tablets;
