@@ -43,7 +43,8 @@
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-  margin: 35px 15px 15px 15px; }
+  margin: 35px 15px 15px 15px;
+  box-shadow: 2px 10px 15px #7b8e8e; }
 
 .inside-job {
   font-weight: 700;
@@ -120,5 +121,8 @@
   margin-top: 0.5em;
   margin-right: 1em;
   margin-bottom: 1em; }
+  .jobOffer-requisites .label-skills:hover {
+    background-color: #5ba4a4;
+    color: #eef6f6; }
 
 /*# sourceMappingURL=index.css.map */

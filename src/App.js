@@ -39,6 +39,7 @@ class Requisites extends React.Component {
   }
 }
 
+
 class ListJobRow extends React.Component {
   render (){
     const jobList = this.props.jobList;
@@ -103,8 +104,15 @@ class ListJobRow extends React.Component {
 
 class JobListTable extends React.Component {
   render(){
+    const filterText = this.props.filter;
+
     const rows = [];
+    
+    console.log("Filter: " + filterText);
     this.props.jobList.forEach((jobList) => {
+      //if(jobList.languages.indexOf(filterText) === -1) {
+     //     return;
+    //  }
       rows.push(
         <ListJobRow 
           jobList = {jobList}
@@ -112,6 +120,7 @@ class JobListTable extends React.Component {
         />
       )
     });
+
 
     return (
       <div className="results-job">
@@ -123,25 +132,60 @@ class JobListTable extends React.Component {
   }
 }
 
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+
+  handleFilterChange(e) {
+    this.props.onFilterTextChange(e.target.value);
+  }
+
+  render(){
+    return(
+      <form>
+          <input
+              type="text"
+              value={this.props.filter}
+              onChange={this.handleFilterChange}
+          />
+      </form>
+    );
+  }
+}
+
 function App() {
   const [jobs, setJobs] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
       jobsRepositories.getAll().then((jobList) => {
           setJobs(jobList);
+          
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, []);
 
+  function handleFilter(filter){
+      setFilter(filter);
+  };
+
   return (
     <div className="App">
       <header className="App-header"></header>
       <body className="App-body">
         <div className="filterTable">
+          <SearchBar
+            filter = {filter}
+            onFilterTextChange={handleFilter}
+          />
           <JobListTable 
               jobList = {jobs}
+              filter = {filter}
           />
 
         </div>

@@ -65,7 +65,7 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
     border-radius: 5px;
     padding: 10px;
     margin: 35px 15px 15px 15px;
-    
+    box-shadow: 2px 10px 15px $color-dark;
 }
 
 .inside-job{
@@ -160,4 +160,11 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
     margin-top: 0.5em;
     margin-right: 1em;
     margin-bottom: 1em;
+
+    
+    &:hover{
+        background-color: $color-primary;
+        color: $color-filter-tablets;   
+    }
 }
+
