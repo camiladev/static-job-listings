@@ -147,14 +147,17 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
 
 
 .jobOffer-requisites{
-    display: grid;
-    gap: 0.6em;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
+    flex-wrap: wrap;
 }
-.jobOffer-requisites span{
+.jobOffer-requisites .label-skills{
     color: $color-primary;
     font-weight: $font-weights-700;
     background-color:$color-filter-tablets;
     padding: 10px;
     border-radius: 5px;
+
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 1em;
 }

@@ -1,16 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import './style/css/index.css';
-
-
 import jobsRepositories from '../src/repositories/jobs';
+
+
+class Requisites extends React.Component {
+  render(){
+    const langList = this.props.langList;
+    const toolsList = this.props.toolsList;
+    const role = this.props.role;
+    const level = this.props.level;
+
+    const languages = [];
+    const tools = [];
+
+    langList.forEach((langList) => {
+        languages.push(          
+            <span className="label-skills">{langList}</span>          
+        );
+    });
+
+    if(toolsList != ""){
+      toolsList.forEach((toolsList) => {
+        tools.push(          
+            <span className="label-skills">{toolsList}</span>          
+        );
+      });
+    };
+
+    return(
+      <>
+        <span className="label-skills">{role}</span> 
+        <span className="label-skills">{level}</span>       
+        {languages}
+        {tools}
+      </>
+      
+    );
+  }
+}
 
 class ListJobRow extends React.Component {
   render (){
     const jobList = this.props.jobList;
     const logo = require(`${jobList.logo}`);
-        
-    const languages = jobList.languages;
-    const tools = jobList.tools;
 
     const resultsNews = jobList.new;
     var news = "";
@@ -34,7 +66,6 @@ class ListJobRow extends React.Component {
       featBorder = "job-row";
     }
 
-       
     return (
       <li className={featBorder}>
           <div className="inside-job">
@@ -57,10 +88,12 @@ class ListJobRow extends React.Component {
               </div>
 
               <div className="jobOffer-requisites">
-                <span className="label-skills">{languages}</span>
-                <span className="label-skills">{tools}</span>
-                <span className="label-skills">{jobList.role}</span>
-                <span className="label-skills">{jobList.level}</span>
+                  <Requisites 
+                      langList = {jobList.languages}
+                      toolsList = {jobList.tools}
+                      role = {jobList.role}
+                      level = {jobList.level}
+                  />
               </div>
           </div>
       </li>
