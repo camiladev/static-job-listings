@@ -4,6 +4,15 @@ import jobsRepositories from '../src/repositories/jobs';
 
 
 class Requisites extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+  }
+
+  handleFilterClick(value){
+      this.props.onClickFilter(value.target.value);
+  }
+
   render(){
     const langList = this.props.langList;
     const toolsList = this.props.toolsList;
@@ -15,25 +24,42 @@ class Requisites extends React.Component {
 
     langList.forEach((langList) => {
         languages.push(          
-            <span className="label-skills">{langList}</span>          
+            <button 
+              className="label-skills"
+              type="button"
+              value={langList}
+              onClick={this.handleFilterClick}>{langList}</button>          
         );
     });
 
     if(toolsList != ""){
       toolsList.forEach((toolsList) => {
         tools.push(          
-            <span className="label-skills">{toolsList}</span>          
+            <button 
+              className="label-skills"
+              type="button"
+              value={toolsList}
+              onClick={this.handleFilterClick}
+              >{toolsList}</button>          
         );
       });
     };
 
     return(
-      <>
-        <span className="label-skills">{role}</span> 
-        <span className="label-skills">{level}</span>       
+      <form>
+        <button  
+              className="label-skills"
+              type="button"
+              value={role}
+              onClick={this.handleFilterClick}>{role}</button> 
+        <button  
+              className="label-skills"
+              type="button"
+              value={level}
+              onClick={this.handleFilterClick}>{level}</button>       
         {languages}
         {tools}
-      </>
+      </form>
       
     );
   }
@@ -41,6 +67,16 @@ class Requisites extends React.Component {
 
 
 class ListJobRow extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.onClickFilter = this.onClickFilter.bind(this);
+  }
+
+  onClickFilter(value){     
+    this.props.handleFilter(value);
+  }
+
   render (){
     const jobList = this.props.jobList;
     const logo = require(`${jobList.logo}`);
@@ -94,6 +130,7 @@ class ListJobRow extends React.Component {
                       toolsList = {jobList.tools}
                       role = {jobList.role}
                       level = {jobList.level}
+                      onClickFilter = {this.onClickFilter}
                   />
               </div>
           </div>
@@ -103,22 +140,53 @@ class ListJobRow extends React.Component {
 }
 
 class JobListTable extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  handleFilter(value){
+    this.props.handleFilterText(value);
+  }
   render(){
     const filterText = this.props.filter;
+    const jobList = this.props.jobList;
+    var filtered = false;
 
     const rows = [];
-    
-    console.log("Filter: " + filterText);
-    this.props.jobList.forEach((jobList) => {
-      //if(jobList.languages.indexOf(filterText) === -1) {
-     //     return;
-    //  }
-      rows.push(
-        <ListJobRow 
-          jobList = {jobList}
-          key={jobList.id}
-        />
-      )
+   
+    console.log("Filter1: ", filterText);
+    jobList.forEach((jobList) => {
+      jobList.languages.forEach((lang)=>{
+        filterText.forEach((filter)=>{
+          if(lang === filter) {
+            console.log("true: ", jobList.company);
+            /*Assim ele retorna duas vezes quando a empresa tem dois itens em linguagens 
+              creio que solucione este problema atribuindo a lista de empresas com retorno positivo a uma variavel
+              e no final mostrar só a segunda lista criada.
+            */
+            rows.push(
+              <ListJobRow 
+                jobList = {jobList}
+                key={jobList.id}
+                handleFilter={this.handleFilter}
+              />
+            )
+            return filtered = true;
+          }
+        })
+      })
+      if(filtered === false){
+        rows.push(
+          <ListJobRow 
+            jobList = {jobList}
+            key={jobList.id}
+            handleFilter={this.handleFilter}
+          />
+        )
+
+      }
     });
 
 
@@ -170,8 +238,13 @@ function App() {
       });
   }, []);
 
-  function handleFilter(filter){
-      setFilter(filter);
+  function handleFilter(value){
+      setFilter([
+        ...filter,
+        value,
+      ]);
+
+      console.log("function primary: ", value);
   };
 
   return (
@@ -186,6 +259,7 @@ function App() {
           <JobListTable 
               jobList = {jobs}
               filter = {filter}
+              handleFilterText = {handleFilter}
           />
 
         </div>
