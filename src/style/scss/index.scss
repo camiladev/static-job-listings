@@ -168,3 +168,56 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
     }
 }
 
+.list-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-background-tables;
+    height: auto;
+    margin: 15px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 10px 15px $color-dark;
+    margin-top: -43px;
+
+    .clear{
+        color: $color-primary;
+        font-weight: $font-weights-700;
+        height: 100%;
+        width: 13%;
+        margin: 15px;
+    }
+}
+
+.list-filter ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.list-filter li{
+    display: flex;
+    margin: 10px;
+    background-color: $color-filter-tablets;
+    color: $color-primary;
+    border-radius: 5px;
+    font-weight: $font-weights-700;
+}
+
+.list-filter div{
+    width: 90%;
+}
+
+.list-filter .label-filter{
+    padding: 10px;
+}
+
+.list-filter .remove{
+    background-color: $color-veryDark;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    text-decoration: none;
+    color: white;
+}

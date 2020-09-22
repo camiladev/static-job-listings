@@ -79,6 +79,7 @@ class ListJobRow extends React.Component {
 
   render (){
     const jobList = this.props.jobList;
+    const id = jobList.id;
     const logo = require(`${jobList.logo}`);
 
     const resultsNews = jobList.new;
@@ -104,7 +105,7 @@ class ListJobRow extends React.Component {
     }
 
     return (
-      <li className={featBorder}>
+      <li  className={featBorder}>
           <div className="inside-job">
               <div className="logo-job">
                 <img src={logo} />
@@ -190,19 +191,34 @@ class SearchBar extends React.Component {
   render(){
     const filter = this.props.filter;
     var rowsFilter = [];
+    var classFilter = "";
+    var clear = "";
+
+    if(filter.length > 0){
+      classFilter="list-filter"
+      clear = 'Clear'
+    }
 
     filter.forEach((result) => {
       rowsFilter.push(
-        <li>{filter}</li>
+        <li>
+          <div className='label-filter'>{result}</div>
+          <a href='' className='remove'><span>x</span></a>
+        </li>
       );
 
     });
 
     return(
-      <div>
-        <ul>
-          {rowsFilter}
-        </ul>
+      <div className={classFilter}>
+        <div>
+          <ul>
+            {rowsFilter}
+          </ul>
+        </div>
+        <a href='#' className='clear'>
+          {clear}
+        </a>
       </div>
     );
   }
