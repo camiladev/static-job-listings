@@ -141,54 +141,29 @@ class ListJobRow extends React.Component {
 
 class JobListTable extends React.Component {
   constructor(props){
-    super(props);
-    
+    super(props);    
     this.handleFilter = this.handleFilter.bind(this);
   }
 
   handleFilter(value){
     this.props.handleFilterText(value);
+    console.log('JobListTable: ', value);
   }
-  render(){
-    const filterText = this.props.filter;
-    const jobList = this.props.jobList;
-    var filtered = false;
 
-    const rows = [];
+  render(){    
+    const jobList = this.props.jobList;   
+    var rows = [];    
    
-    console.log("Filter1: ", filterText);
-    jobList.forEach((jobList) => {
-      jobList.languages.forEach((lang)=>{
-        filterText.forEach((filter)=>{
-          if(lang === filter) {
-            console.log("true: ", jobList.company);
-            /*Assim ele retorna duas vezes quando a empresa tem dois itens em linguagens 
-              creio que solucione este problema atribuindo a lista de empresas com retorno positivo a uma variavel
-              e no final mostrar só a segunda lista criada.
-            */
-            rows.push(
-              <ListJobRow 
-                jobList = {jobList}
-                key={jobList.id}
-                handleFilter={this.handleFilter}
-              />
-            )
-            return filtered = true;
-          }
-        })
-      })
-      if(filtered === false){
-        rows.push(
-          <ListJobRow 
-            jobList = {jobList}
-            key={jobList.id}
-            handleFilter={this.handleFilter}
-          />
-        )
-
-      }
+    jobList.forEach((jobList) => {      
+      rows.push(
+        <ListJobRow 
+          jobList = {jobList}
+          key={jobList.id}
+          handleFilter={this.handleFilter}
+        />
+      )
+      
     });
-
 
     return (
       <div className="results-job">
@@ -209,17 +184,26 @@ class SearchBar extends React.Component {
 
   handleFilterChange(e) {
     this.props.onFilterTextChange(e.target.value);
+    console.log('Mudou');
   }
 
   render(){
+    const filter = this.props.filter;
+    var rowsFilter = [];
+
+    filter.forEach((result) => {
+      rowsFilter.push(
+        <li>{filter}</li>
+      );
+
+    });
+
     return(
-      <form>
-          <input
-              type="text"
-              value={this.props.filter}
-              onChange={this.handleFilterChange}
-          />
-      </form>
+      <div>
+        <ul>
+          {rowsFilter}
+        </ul>
+      </div>
     );
   }
 }
@@ -230,8 +214,7 @@ function App() {
 
   useEffect(() => {
       jobsRepositories.getAll().then((jobList) => {
-          setJobs(jobList);
-          
+          setJobs(jobList);          
       })
       .catch((err) => {
         console.log(err.message);
@@ -243,9 +226,31 @@ function App() {
         ...filter,
         value,
       ]);
-
-      console.log("function primary: ", value);
+      filterListJobs(value);
   };
+
+  function updateListJobs(newList){
+    setJobs(newList);
+  }
+
+  function filterListJobs(valueFilter){    
+    var skills = [];
+    var result = [];
+    var endFilter = valueFilter;  
+
+    for(var line in jobs){
+      var stringSkill = jobs[line].languages + ',' + jobs[line].tools+ ',' + jobs[line].role + ',' + jobs[line].level;
+      skills = stringSkill.split(',');
+      
+      for(var lineSkills of skills){
+        if(lineSkills === endFilter){  
+          result.push(jobs[line]);
+        }
+
+      }
+    }
+    updateListJobs(result);
+  }
 
   return (
     <div className="App">
