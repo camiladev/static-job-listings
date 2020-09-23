@@ -105,7 +105,7 @@ class ListJobRow extends React.Component {
     }
 
     return (
-      <li  className={featBorder}>
+      <li key={jobList.id}  className={featBorder}>
           <div className="inside-job">
               <div className="logo-job">
                 <img src={logo} />
@@ -119,14 +119,15 @@ class ListJobRow extends React.Component {
               <div className="jobOffer-description">
                 <h2>{jobList.position}</h2>
                 <ul className="job-info">
-                  <li className="li-default">{jobList.postedAt}</li>
-                  <li>{jobList.contract}</li>
-                  <li>{jobList.location}</li>
+                  <li key={jobList.postedAt} className="li-default">{jobList.postedAt}</li>
+                  <li key={jobList.contract}>{jobList.contract}</li>
+                  <li key={jobList.location}>{jobList.location}</li>
                 </ul>
               </div>
 
               <div className="jobOffer-requisites">
                   <Requisites 
+                      key={jobList.level}
                       langList = {jobList.languages}
                       toolsList = {jobList.tools}
                       role = {jobList.role}
@@ -180,12 +181,12 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleFilterClick = this.handleFilterClick.bind(this);
   }
 
-  handleFilterChange(e) {
-    this.props.onFilterTextChange(e.target.value);
-    console.log('Mudou');
+  handleFilterClick(e) {   
+    console.log('Mudou', e);
+    this.props.onFilterClick(e);
   }
 
   render(){
@@ -203,7 +204,7 @@ class SearchBar extends React.Component {
       rowsFilter.push(
         <li>
           <div className='label-filter'>{result}</div>
-          <a href='' className='remove'><span>x</span></a>
+          <a href='#' className='remove' onClick={()=>this.handleFilterClick(result)}><span>x</span></a>
         </li>
       );
 
@@ -245,6 +246,10 @@ function App() {
       filterListJobs(value);
   };
 
+  function deletFilter(remove){
+      console.log('Remove ', remove);
+  }
+
   function updateListJobs(newList){
     setJobs(newList);
   }
@@ -275,7 +280,7 @@ function App() {
         <div className="filterTable">
           <SearchBar
             filter = {filter}
-            onFilterTextChange={handleFilter}
+            onFilterClick={deletFilter}
           />
           <JobListTable 
               jobList = {jobs}

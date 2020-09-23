@@ -155,17 +155,21 @@ $url-imageDesktop: url('../../images/bg-header-desktop.svg');
     font-weight: $font-weights-700;
     background-color:$color-filter-tablets;
     padding: 10px;
+    border: none;
     border-radius: 5px;
 
     margin-top: 0.5em;
     margin-right: 1em;
     margin-bottom: 1em;
 
+
     
     &:hover{
         background-color: $color-primary;
-        color: $color-filter-tablets;   
+        color: $color-filter-tablets; 
+         
     }
+    
 }
 
 .list-filter{
