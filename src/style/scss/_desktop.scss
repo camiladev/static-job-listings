@@ -1,0 +1,7 @@
+@import 'library';
+
+.App-header {
+    background-image: $url-imageDesktop;
+    background-color: $color-primary;
+    height: $height-header;
+}

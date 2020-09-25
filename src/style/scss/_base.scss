@@ -1,6 +1,53 @@
+@import 'library';
+
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+@mixin styles-base {
+    .App-header{
+        background-color: $color-primary;
+        height: $height-header;
+    }
+    .App-body{
+        background-color: $color-background;
+        min-height: 100vh - $height-header;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .filterTable{
+        width: 100%;
+    }
+    
+    .results-job{
+        display: flex;
+        justify-content: center;
+        
+    }
+    
+    .job-list{
+        height: auto;
+        width: 100%;
+    }
+
+    .job-border-left{
+        border-left: 5px $color-primary solid;
+    }
+
+    .job-row{
+        display: flex;
+        flex-direction: column;    
+        background-color: $color-background-tables;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 35px 15px 15px 15px;
+        box-shadow: 2px 10px 15px $color-dark;
+    }
+
 }

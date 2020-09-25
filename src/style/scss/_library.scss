@@ -1,0 +1,19 @@
+$width-mobile: 375px; /* Width max */
+$width-desktop: 1440px; /* Width max */
+
+$height-header: 24vh;
+
+$color-primary: hsl(180, 29%, 50%);
+$color-background: hsl(180, 52%, 96%);
+$color-background-tables: white;
+$color-filter-tablets: hsl(180, 31%, 95%);
+$color-dark: hsl(180, 8%, 52%);
+$color-veryDark: hsl(180, 14%, 20%);
+
+$font-size: 15px;
+$font-family: 'Spartan', sans-serif;
+$font-weights-700: 700;
+$font-weights-500: 500;
+
+$url-imageMobile: url('../../images/bg-header-mobile.svg');
+$url-imageDesktop: url('../../images/bg-header-desktop.svg');
