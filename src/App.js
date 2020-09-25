@@ -182,11 +182,16 @@ class SearchBar extends React.Component {
     super(props);
 
     this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
 
   handleFilterClick(e) {   
     console.log('Mudou', e);
     this.props.onFilterClick(e);
+  }
+
+  handleClear(){
+    this.props.onClickClear();
   }
 
   render(){
@@ -217,7 +222,7 @@ class SearchBar extends React.Component {
             {rowsFilter}
           </ul>
         </div>
-        <a href='#' className='clear'>
+        <a href='#' className='clear' onClick={this.handleClear}>
           {clear}
         </a>
       </div>
@@ -228,10 +233,12 @@ class SearchBar extends React.Component {
 function App() {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [jobsBeginn, setJobsBeginn] = useState([]);
 
   useEffect(() => {
       jobsRepositories.getAll().then((jobList) => {
-          setJobs(jobList);          
+          setJobs(jobList);
+          setJobsBeginn(jobList);          
       })
       .catch((err) => {
         console.log(err.message);
@@ -247,7 +254,19 @@ function App() {
   };
 
   function deletFilter(remove){
-      console.log('Remove ', remove);
+      
+      let list = filter.slice();
+      let index = list.indexOf(remove);
+      let newList = list.splice(index, 1);
+     
+      updateListJobs(jobsBeginn);
+      setFilter(list);
+      filterListJobs(list);
+  }
+
+  function clearFilter(){
+    updateListJobs(jobsBeginn);
+    setFilter([]);
   }
 
   function updateListJobs(newList){
@@ -257,20 +276,47 @@ function App() {
   function filterListJobs(valueFilter){    
     var skills = [];
     var result = [];
-    var endFilter = valueFilter;  
-
-    for(var line in jobs){
-      var stringSkill = jobs[line].languages + ',' + jobs[line].tools+ ',' + jobs[line].role + ',' + jobs[line].level;
-      skills = stringSkill.split(',');
+    var filterArray = Array.isArray(valueFilter);
+    var listJobs = [];
+    var newResult = [];
+    
+    
+    if(filterArray){
+      listJobs = jobsBeginn;
       
-      for(var lineSkills of skills){
-        if(lineSkills === endFilter){  
-          result.push(jobs[line]);
+      for(var listFilter of valueFilter){
+        
+        newResult = [];
+        for(var line in listJobs){
+          var stringSkill = listJobs[line].languages + ',' + listJobs[line].tools+ ',' + listJobs[line].role + ',' + listJobs[line].level;
+          skills = stringSkill.split(',');
+          
+          for(var lineSkills of skills){
+            if(lineSkills === listFilter){  
+              newResult.push(listJobs[line]);
+            }
+    
+          }
         }
-
+        listJobs = newResult;
       }
-    }
-    updateListJobs(result);
+      updateListJobs(listJobs);
+    }else{
+      listJobs = jobs;
+
+      for(var line in listJobs){
+        var stringSkill = listJobs[line].languages + ',' + listJobs[line].tools+ ',' + listJobs[line].role + ',' + listJobs[line].level;
+        skills = stringSkill.split(',');
+        
+        for(var lineSkills of skills){
+          if(lineSkills === valueFilter){  
+            result.push(listJobs[line]);
+          }  
+        }
+      }
+      updateListJobs(result);
+    }      
+
   }
 
   return (
@@ -280,7 +326,8 @@ function App() {
         <div className="filterTable">
           <SearchBar
             filter = {filter}
-            onFilterClick={deletFilter}
+            onFilterClick = {deletFilter}
+            onClickClear = {clearFilter}
           />
           <JobListTable 
               jobList = {jobs}
