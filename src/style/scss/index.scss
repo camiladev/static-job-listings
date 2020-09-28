@@ -5,14 +5,15 @@
 /*Style Geral*/
 @include styles-base;
 
-@media(max-width: $width-desktop){
-    /*Desktop */
-    @import 'desktop';
-}
-
 @media(max-width: $width-mobile){
     /*Firt mobile */
     @import 'mobile';
 }
+@media (min-width: 760px) and (max-width: $width-desktop){
+    /*Desktop */
+    
+    @import 'desktop';
+}
+
 
 
