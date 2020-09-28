@@ -3,23 +3,11 @@
 
 .App-header {
     background-image: $url-imageMobile; //muda
-    background-color: $color-primary;
-    height: $height-header;
+   
 }
 
 .App-body{
-    background-color: $color-background;
     min-height: 100vh - $height-header;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-}
-
-
-.inside-job{
-    font-weight: $font-weights-700;
-    font-size: $font-size;
-    color: $color-primary;
 }
 
 .logo-job{
@@ -31,149 +19,8 @@
     width: 55px;
 }
 
-.content-job{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.content-job h1{
-    padding-right: 15px;
-}
-
-.content-job span{
-    color: $color-filter-tablets;
-    height: 2em;
-    width: auto;
-    text-align: center;
-}
-
-.content-job .jobOffer-new{
-    background-color: $color-primary;    
-    border-radius: 20px;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.content-job .jobOffer-featured{
-    background-color: $color-veryDark;
-    border-radius: 20px;
-    padding: 10px;
-    margin-right: 10px;
-    
-}
-
 .jobOffer-description{
-    display: flex;
-    flex-direction: column;
     border-bottom: 1.8px $color-dark solid;
     padding-bottom: 10px;
     margin-bottom: 10px;
-}
-
-.jobOffer-description h2{
-    color: $color-veryDark;
-    font-weight: $font-weights-700;
-    padding: 10px 0 10px 0;
-}
-
-.job-info {
-    font-weight: $font-weights-500;
-    color: $color-dark;
-    display: flex;
-
-}
-
-.job-info .li-default{
-    list-style: none;
-}
-
-.job-info li{
-    padding-right: 25px;
-    list-style: disc;
-}
-
-
-.jobOffer-requisites{
-    display: flex;
-    flex-wrap: wrap;
-}
-.jobOffer-requisites .label-skills{
-    color: $color-primary;
-    font-weight: $font-weights-700;
-    background-color: $color-filter-tablets;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-
-    margin-top: 0.5em;
-    margin-right: 1em;
-    margin-bottom: 1em;
-
-
-    
-    &:hover{
-        background-color: $color-primary;
-        color: $color-filter-tablets; 
-         
-    }
-    
-}
-
-.list-filter{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: $color-background-tables;
-    height: auto;
-    margin: 15px;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 2px 10px 15px $color-dark;
-    margin-top: -43px;
-
-    .clear{
-        color: $color-veryDark;
-        font-weight: $font-weights-700;
-        height: 50px;
-        width: 7em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-    }
-}
-
-.list-filter ul{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-.list-filter li{
-    display: flex;
-    margin: 10px;
-    margin-right: 2px;
-    background-color: $color-filter-tablets;
-    color: $color-primary;
-    border-radius: 5px;
-    font-weight: $font-weights-700;
-}
-
-.list-filter div{
-    width: 90%;
-}
-
-.list-filter .label-filter{
-    padding: 10px;
-}
-
-.list-filter .remove{
-    background-color: $color-primary;
-    padding: 10px;
-    border-radius: 0px 5px 5px 0px;
-    text-decoration: none;
-    color: white;
 }

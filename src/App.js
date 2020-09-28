@@ -110,19 +110,22 @@ class ListJobRow extends React.Component {
               <div className="logo-job">
                 <img src={logo} />
               </div>
-              <div className="content-job">
-                  <h1>{jobList.company}</h1>
-                  <span className={newsClass}>{news}</span>
-                  <span className={featClass}>{feat}</span>
-              </div>
-              
-              <div className="jobOffer-description">
-                <h2>{jobList.position}</h2>
-                <ul className="job-info">
-                  <li key={jobList.postedAt} className="li-default">{jobList.postedAt}</li>
-                  <li key={jobList.contract}>{jobList.contract}</li>
-                  <li key={jobList.location}>{jobList.location}</li>
-                </ul>
+              <div>
+                <div className="content-job">
+                    <h1>{jobList.company}</h1>
+                    <span className={newsClass}>{news}</span>
+                    <span className={featClass}>{feat}</span>
+                </div>
+                
+                <div className="jobOffer-description">
+                  <h2>{jobList.position}</h2>
+                  <ul className="job-info">
+                    <li key={jobList.postedAt} className="li-default">{jobList.postedAt}</li>
+                    <li key={jobList.contract}>{jobList.contract}</li>
+                    <li key={jobList.location}>{jobList.location}</li>
+                  </ul>
+                </div>
+
               </div>
 
               <div className="jobOffer-requisites">

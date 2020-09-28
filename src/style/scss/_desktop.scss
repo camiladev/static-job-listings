@@ -1,7 +1,48 @@
 @import 'library';
 
+$height-desktop: 15vh;
+
 .App-header {
     background-image: $url-imageDesktop;
-    background-color: $color-primary;
-    height: $height-header;
+    height: $height-desktop;
+}
+
+.App-body{
+    min-height: 100vh - $height-desktop;
+}
+
+.filterTable{
+    padding-left: 9vw;
+    padding-right: 9vw;
+}
+
+.inside-job{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo-job{
+    margin: 15px;
+    padding: 10px;
+}
+
+.content-job{
+    width: 24vw;
+}
+
+.job-info{
+    li{
+        font-size: 13px;
+    }
+}
+.jobOffer-requisites{
+    text-align: right;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.label-skills{
+    font-size: 12px;
 }
