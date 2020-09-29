@@ -118,7 +118,7 @@ class ListJobRow extends React.Component {
                 </div>
                 
                 <div className="jobOffer-description">
-                  <h2>{jobList.position}</h2>
+                  <h2><a href='#'>{jobList.position}</a></h2>
                   <ul className="job-info">
                     <li key={jobList.postedAt} className="li-default">{jobList.postedAt}</li>
                     <li key={jobList.contract}>{jobList.contract}</li>
@@ -212,7 +212,7 @@ class SearchBar extends React.Component {
       rowsFilter.push(
         <li>
           <div className='label-filter'>{result}</div>
-          <a href='#' className='remove' onClick={()=>this.handleFilterClick(result)}><span>x</span></a>
+          <a href='#' className='remove' onClick={()=>this.handleFilterClick(result)}><span></span></a>
         </li>
       );
 

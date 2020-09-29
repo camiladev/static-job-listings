@@ -6,14 +6,16 @@
   list-style: none;
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
-  font-size: 15px; }
+  font-size: 15px;
+  text-decoration: none; }
 
 /* Width max */
 /* Width max */
 /*Style Geral*/
 .App-header {
+  background-image: url("../../images/bg-header-mobile.svg");
   background-color: #5ba4a4;
-  height: 10em; }
+  height: 23vh; }
 
 .App-body {
   background-color: #effafa;
@@ -41,6 +43,8 @@
   background-color: white;
   border-radius: 5px;
   padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 35px 15px 15px 15px;
   box-shadow: 2px 10px 15px #7b8e8e; }
 
@@ -75,9 +79,12 @@
   display: flex;
   flex-direction: column; }
   .jobOffer-description h2 {
-    color: #2c3a3a;
     font-weight: 700;
     padding: 10px 0 10px 0; }
+  .jobOffer-description a {
+    color: #2c3a3a; }
+    .jobOffer-description a:hover {
+      color: #5ba4a4; }
 
 .job-info {
   font-weight: 500;
@@ -130,6 +137,9 @@
     justify-content: center;
     align-items: center;
     text-decoration: none; }
+    .list-filter .clear:hover {
+      color: #5ba4a4;
+      text-decoration: underline; }
   .list-filter ul {
     display: flex;
     flex-wrap: wrap;
@@ -149,11 +159,25 @@
   padding: 10px; }
 
 .list-filter .remove {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #5ba4a4;
-  padding: 10px;
+  width: 50px;
+  height: 100%;
   border-radius: 0px 5px 5px 0px;
-  text-decoration: none;
   color: white; }
+  .list-filter .remove span {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../images/icon-remove.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    margin: 10px; }
+  .list-filter .remove:hover {
+    background-color: #2c3a3a; }
 
 @media (max-width: 375px) {
   /*Firt mobile */
@@ -164,7 +188,7 @@
     background-image: url("../../images/bg-header-mobile.svg"); }
 
   .App-body {
-    min-height: 90em; }
+    min-height: 77vh; }
 
   .logo-job {
     display: flex;
@@ -177,7 +201,7 @@
     border-bottom: 1.8px #7b8e8e solid;
     padding-bottom: 10px;
     margin-bottom: 10px; } }
-@media (min-width: 760px) and (max-width: 1440px) {
+@media (min-width: 760px) {
   /*Desktop */
   /* Width max */
   /* Width max */
@@ -189,8 +213,8 @@
     min-height: 85vh; }
 
   .filterTable {
-    padding-left: 9vw;
-    padding-right: 9vw; }
+    padding-left: 10vw;
+    padding-right: 10vw; }
 
   .inside-job {
     display: flex;
@@ -211,9 +235,6 @@
     text-align: right;
     width: 100%;
     justify-content: flex-end;
-    padding-right: 10px; }
-
-  .label-skills {
-    font-size: 12px; } }
+    padding-right: 10px; } }
 
 /*# sourceMappingURL=index.css.map */

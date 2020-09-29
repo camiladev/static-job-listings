@@ -1,7 +1,7 @@
 $width-mobile: 375px; /* Width max */
 $width-desktop: 1440px; /* Width max */
 
-$height-header: 10em;
+$height-header: 23vh;
 
 $color-primary: hsl(180, 29%, 50%);
 $color-background: hsl(180, 52%, 96%);
@@ -17,3 +17,4 @@ $font-weights-500: 500;
 
 $url-imageMobile: url('../../images/bg-header-mobile.svg');
 $url-imageDesktop: url('../../images/bg-header-desktop.svg');
+$url-imageRemove: url('../../images/icon-remove.svg');
