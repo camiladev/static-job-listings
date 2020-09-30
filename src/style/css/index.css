@@ -80,10 +80,10 @@
   flex-direction: column; }
   .jobOffer-description h2 {
     font-weight: 700;
-    padding: 10px 0 10px 0; }
-  .jobOffer-description a {
-    color: #2c3a3a; }
-    .jobOffer-description a:hover {
+    padding: 10px 0 10px 0;
+    color: #2c3a3a;
+    cursor: pointer; }
+    .jobOffer-description h2:hover {
       color: #5ba4a4; }
 
 .job-info {
@@ -107,6 +107,7 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
   margin-top: 0.5em;
   margin-right: 1em;
   margin-bottom: 1em; }
@@ -136,7 +137,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none; }
+    cursor: pointer; }
     .list-filter .clear:hover {
       color: #5ba4a4;
       text-decoration: underline; }
@@ -167,7 +168,8 @@
   width: 50px;
   height: 100%;
   border-radius: 0px 5px 5px 0px;
-  color: white; }
+  color: white;
+  cursor: pointer; }
   .list-filter .remove span {
     position: absolute;
     width: 16px;

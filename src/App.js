@@ -10,7 +10,7 @@ class Requisites extends React.Component {
   }
 
   handleFilterClick(value){
-      this.props.onClickFilter(value.target.value);
+      this.props.onClickFilter(value);
   }
 
   render(){
@@ -24,42 +24,38 @@ class Requisites extends React.Component {
 
     langList.forEach((langList) => {
         languages.push(          
-            <button 
+            <div 
               className="label-skills"
-              type="button"
               value={langList}
-              onClick={this.handleFilterClick}>{langList}</button>          
+              onClick={()=>this.handleFilterClick(langList)}>{langList}</div>          
         );
     });
 
-    if(toolsList != ""){
+    if(toolsList !== ""){
       toolsList.forEach((toolsList) => {
         tools.push(          
-            <button 
+            <div 
               className="label-skills"
-              type="button"
               value={toolsList}
-              onClick={this.handleFilterClick}
-              >{toolsList}</button>          
+              onClick={()=>this.handleFilterClick(toolsList)}
+              >{toolsList}</div>          
         );
       });
     };
 
     return(
-      <form>
-        <button  
+      <> 
+        <div  
               className="label-skills"
-              type="button"
               value={role}
-              onClick={this.handleFilterClick}>{role}</button> 
-        <button  
+              onClick={()=>this.handleFilterClick(role)}>{role}</div> 
+        <div  
               className="label-skills"
-              type="button"
               value={level}
-              onClick={this.handleFilterClick}>{level}</button>       
+              onClick={()=>this.handleFilterClick(level)}>{level}</div>       
         {languages}
         {tools}
-      </form>
+        </>
       
     );
   }
@@ -78,8 +74,7 @@ class ListJobRow extends React.Component {
   }
 
   render (){
-    const jobList = this.props.jobList;
-    const id = jobList.id;
+    const jobList = this.props.jList;;
     const logo = require(`${jobList.logo}`);
 
     const resultsNews = jobList.new;
@@ -106,9 +101,9 @@ class ListJobRow extends React.Component {
 
     return (
       <li key={jobList.id}  className={featBorder}>
-          <div className="inside-job">
+          <div key={jobList.company} className="inside-job">
               <div className="logo-job">
-                <img src={logo} />
+                <img src={logo} alt='Logo Company' />
               </div>
               <div>
                 <div className="content-job">
@@ -118,7 +113,7 @@ class ListJobRow extends React.Component {
                 </div>
                 
                 <div className="jobOffer-description">
-                  <h2><a href='#'>{jobList.position}</a></h2>
+                  <h2>{jobList.position}</h2>
                   <ul className="job-info">
                     <li key={jobList.postedAt} className="li-default">{jobList.postedAt}</li>
                     <li key={jobList.contract}>{jobList.contract}</li>
@@ -157,13 +152,14 @@ class JobListTable extends React.Component {
 
   render(){    
     const jobList = this.props.jobList;   
-    var rows = [];    
-   
-    jobList.forEach((jobList) => {      
+    var rows = [];
+    var id = '';    
+    jobList.forEach((jList) => {      
+      id = jList.company;
       rows.push(
         <ListJobRow 
-          jobList = {jobList}
-          key={jobList.id}
+          key={jList.id}
+          jList = {jList}
           handleFilter={this.handleFilter}
         />
       )
@@ -172,7 +168,7 @@ class JobListTable extends React.Component {
 
     return (
       <div className="results-job">
-        <ul className="job-list">
+        <ul key={id} className="job-list">
             {rows}
         </ul>
     </div>
@@ -212,7 +208,10 @@ class SearchBar extends React.Component {
       rowsFilter.push(
         <li>
           <div className='label-filter'>{result}</div>
-          <a href='#' className='remove' onClick={()=>this.handleFilterClick(result)}><span></span></a>
+          <div             
+            className='remove' 
+            onClick={()=>this.handleFilterClick(result)}>
+            <span></span></div>
         </li>
       );
 
@@ -225,9 +224,11 @@ class SearchBar extends React.Component {
             {rowsFilter}
           </ul>
         </div>
-        <a href='#' className='clear' onClick={this.handleClear}>
+        <div 
+          className='clear' 
+          onClick={this.handleClear}>
           {clear}
-        </a>
+        </div>
       </div>
     );
   }
@@ -249,11 +250,21 @@ function App() {
   }, []);
 
   function handleFilter(value){
+    var control = false;
+    for(var v of filter){
+        if(value === v){
+          control = true;
+        }
+    }
+    if(control === false){
       setFilter([
         ...filter,
         value,
       ]);
       filterListJobs(value);
+    }else{
+      alert("Opção já aplicada!");
+    }
   };
 
   function deletFilter(remove){
@@ -261,7 +272,7 @@ function App() {
       let list = filter.slice();
       let index = list.indexOf(remove);
       let newList = list.splice(index, 1);
-     
+        console.log('Removido: ', newList);
       updateListJobs(jobsBeginn);
       setFilter(list);
       filterListJobs(list);
@@ -307,13 +318,13 @@ function App() {
     }else{
       listJobs = jobs;
 
-      for(var line in listJobs){
-        var stringSkill = listJobs[line].languages + ',' + listJobs[line].tools+ ',' + listJobs[line].role + ',' + listJobs[line].level;
-        skills = stringSkill.split(',');
+      for(var l in listJobs){
+        var sSkill = listJobs[l].languages + ',' + listJobs[l].tools+ ',' + listJobs[l].role + ',' + listJobs[l].level;
+        skills = sSkill.split(',');
         
-        for(var lineSkills of skills){
-          if(lineSkills === valueFilter){  
-            result.push(listJobs[line]);
+        for(var lSkills of skills){
+          if(lSkills === valueFilter){  
+            result.push(listJobs[l]);
           }  
         }
       }
@@ -325,14 +336,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <body className="App-body">
+      <div className="App-body">
         <div className="filterTable">
           <SearchBar
+            key={filter.length}
             filter = {filter}
             onFilterClick = {deletFilter}
             onClickClear = {clearFilter}
           />
           <JobListTable 
+              key={jobs.id}
               jobList = {jobs}
               filter = {filter}
               handleFilterText = {handleFilter}
@@ -340,7 +353,7 @@ function App() {
 
         </div>
 
-      </body>
+      </div>
     </div>
   );
 }

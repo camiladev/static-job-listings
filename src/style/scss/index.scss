@@ -9,7 +9,7 @@
     /*Firt mobile */
     @import 'mobile';
 }
-@media (min-width: 760px) /*and (max-width: $width-desktop)*/{
+@media (min-width: 760px){
     /*Desktop */
     
     @import 'desktop';
