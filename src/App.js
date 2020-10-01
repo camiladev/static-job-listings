@@ -338,6 +338,7 @@ function App() {
       <header className="App-header"></header>
       <div className="App-body">
         <div className="filterTable">
+          {jobs.length === 0 && (<div>Loading...</div>)}
           <SearchBar
             key={filter.length}
             filter = {filter}
