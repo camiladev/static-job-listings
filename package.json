@@ -13,7 +13,7 @@
     "sass": "^1.26.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node ./server.js",
     "dev": "concurrently \"react-scripts start\" \"node ./server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
