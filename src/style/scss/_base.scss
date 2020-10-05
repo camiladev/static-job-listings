@@ -12,19 +12,44 @@
 }
 
 @mixin styles-base {
-    .App-header{
-        background-image: $url-imageMobile;
+    .App-header{        
         background-color: $color-primary;
-        height: $height-header;
+        
+        @media screen and (min-width: $width-desktop) {
+            background-image: $url-imageDesktop;
+            background-repeat: no-repeat;
+            height: $header-desktop;
+        }
+        @media screen and (max-width: $width-mobile) {
+            background-image: $url-imageMobile;
+            background-repeat: no-repeat;
+            height: $height-header;
+        }
     }
     .App-body{
         background-color: $color-background;        
         display: flex;
         justify-content: center;
         align-items: baseline;
+
+        @media screen and (min-width: $width-desktop) {
+            min-height: 100vh - $header-desktop;
+        }
+        @media screen and (max-width: $width-mobile) {
+            min-height: 100vh - $height-header;
+        }
     }
     .filterTable{
         width: 100%;
+
+        @media screen and (min-width: $width-desktop) {
+            padding-left: 10vw;
+            padding-right: 10vw;
+        }
+        @media screen and (max-width: $width-mobile) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
     
     .results-job{
@@ -58,7 +83,32 @@
         font-weight: $font-weights-700;
         font-size: $font-size;
         color: $color-primary;
+        //aqui
+
+        @media screen and (min-width: $width-desktop) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+       
     }
+
+    .logo-job{
+        
+        @media screen and (min-width: $width-desktop) {
+            margin: 15px;
+            padding: 10px;
+        }
+        @media screen and (max-width: $width-mobile) {
+            display: flex;
+            margin-top: -2em;
+
+            img{
+                width: 55px;
+            }
+        }
+    }
+
     .content-job{
         display: flex;
         flex-direction: row;
@@ -90,6 +140,10 @@
             
         }
 
+        @media screen and (min-width: $width-desktop) {
+            width: 28vw;
+        }
+        
     }
 
     .jobOffer-description{
@@ -108,6 +162,12 @@
                 color: $color-primary;
             }
         }
+
+        @media screen and (max-width: $width-mobile) {
+            border-bottom: 1.8px $color-dark solid;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
     }
     
     .job-info {
@@ -122,6 +182,11 @@
         li{
             padding-right: 25px;
             list-style: disc;
+
+            @media screen and (min-width: $width-desktop) {
+                font-size: 13px;
+            }
+            
         }
     
     }
@@ -130,6 +195,14 @@
 .jobOffer-requisites{
     display: flex;
     flex-wrap: wrap;
+
+    @media screen and (min-width: $width-desktop) {
+        text-align: right;
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 10px;
+    }
+    
 }
 
 .jobOffer-requisites .label-skills{

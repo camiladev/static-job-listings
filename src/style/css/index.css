@@ -13,18 +13,40 @@
 /* Width max */
 /*Style Geral*/
 .App-header {
-  background-image: url("../../images/bg-header-mobile.svg");
-  background-color: #5ba4a4;
-  height: 23vh; }
+  background-color: #5ba4a4; }
+  @media screen and (min-width: 1024px) {
+    .App-header {
+      background-image: url("../../images/bg-header-desktop.svg");
+      background-repeat: no-repeat;
+      height: 34vh; } }
+  @media screen and (max-width: 375px) {
+    .App-header {
+      background-image: url("../../images/bg-header-mobile.svg");
+      background-repeat: no-repeat;
+      height: 23vh; } }
 
 .App-body {
   background-color: #effafa;
   display: flex;
   justify-content: center;
   align-items: baseline; }
+  @media screen and (min-width: 1024px) {
+    .App-body {
+      min-height: 66vh; } }
+  @media screen and (max-width: 375px) {
+    .App-body {
+      min-height: 77vh; } }
 
 .filterTable {
   width: 100%; }
+  @media screen and (min-width: 1024px) {
+    .filterTable {
+      padding-left: 10vw;
+      padding-right: 10vw; } }
+  @media screen and (max-width: 375px) {
+    .filterTable {
+      padding-left: 0;
+      padding-right: 0; } }
 
 .results-job {
   display: flex;
@@ -52,6 +74,22 @@
   font-weight: 700;
   font-size: 15px;
   color: #5ba4a4; }
+  @media screen and (min-width: 1024px) {
+    .inside-job {
+      display: flex;
+      flex-direction: row;
+      align-items: center; } }
+
+@media screen and (min-width: 1024px) {
+  .logo-job {
+    margin: 15px;
+    padding: 10px; } }
+@media screen and (max-width: 375px) {
+  .logo-job {
+    display: flex;
+    margin-top: -2em; }
+    .logo-job img {
+      width: 55px; } }
 
 .content-job {
   display: flex;
@@ -74,6 +112,9 @@
     border-radius: 20px;
     padding: 10px;
     margin-right: 10px; }
+  @media screen and (min-width: 1024px) {
+    .content-job {
+      width: 28vw; } }
 
 .jobOffer-description {
   display: flex;
@@ -85,6 +126,11 @@
     cursor: pointer; }
     .jobOffer-description h2:hover {
       color: #5ba4a4; }
+  @media screen and (max-width: 375px) {
+    .jobOffer-description {
+      border-bottom: 1.8px #7b8e8e solid;
+      padding-bottom: 10px;
+      margin-bottom: 10px; } }
 
 .job-info {
   font-weight: 500;
@@ -95,10 +141,19 @@
   .job-info li {
     padding-right: 25px;
     list-style: disc; }
+    @media screen and (min-width: 1024px) {
+      .job-info li {
+        font-size: 13px; } }
 
 .jobOffer-requisites {
   display: flex;
   flex-wrap: wrap; }
+  @media screen and (min-width: 1024px) {
+    .jobOffer-requisites {
+      text-align: right;
+      width: 100%;
+      justify-content: flex-end;
+      padding-right: 10px; } }
 
 .jobOffer-requisites .label-skills {
   color: #5ba4a4;
@@ -181,62 +236,17 @@
   .list-filter .remove:hover {
     background-color: #2c3a3a; }
 
-@media (min-width: 760px) {
-  /*Desktop */
-  /* Width max */
-  /* Width max */
-  .App-header {
-    background-image: url("../../images/bg-header-desktop.svg");
-    height: 15vh; }
+/*
+@media (min-width: 760px){
+    Desktop 
+    
+    @import 'desktop';
+}
+@media(max-width: $width-mobile){
+    /*Firt mobile 
+    @import 'mobile';
+}
 
-  .App-body {
-    min-height: 85vh; }
-
-  .filterTable {
-    padding-left: 10vw;
-    padding-right: 10vw; }
-
-  .inside-job {
-    display: flex;
-    flex-direction: row;
-    align-items: center; }
-
-  .logo-job {
-    margin: 15px;
-    padding: 10px; }
-
-  .content-job {
-    width: 28vw; }
-
-  .job-info li {
-    font-size: 13px; }
-
-  .jobOffer-requisites {
-    text-align: right;
-    width: 100%;
-    justify-content: flex-end;
-    padding-right: 10px; } }
-@media (max-width: 375px) {
-  /*Firt mobile */
-  /* Width max */
-  /* Width max */
-  /*Firt mobile */
-  .App-header {
-    background-image: url("../../images/bg-header-mobile.svg"); }
-
-  .App-body {
-    min-height: 77vh; }
-
-  .logo-job {
-    display: flex;
-    margin-top: -2em; }
-
-  .logo-job img {
-    width: 55px; }
-
-  .jobOffer-description {
-    border-bottom: 1.8px #7b8e8e solid;
-    padding-bottom: 10px;
-    margin-bottom: 10px; } }
+*/
 
 /*# sourceMappingURL=index.css.map */

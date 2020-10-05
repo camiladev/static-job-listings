@@ -1,14 +1,14 @@
 @import 'library';
 
-$height-desktop: 15vh;
+$header-desktop: 15vh;
 
 .App-header {
     background-image: $url-imageDesktop;
-    height: $height-desktop;
+    height: $header-desktop;
 }
 
 .App-body{
-    min-height: 100vh - $height-desktop;
+    min-height: 100vh - $header-desktop;
 }
 
 .filterTable{
