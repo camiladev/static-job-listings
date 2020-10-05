@@ -96,6 +96,10 @@
         @media screen and (min-width: $width-desktop) {
             margin: 15px;
             padding: 10px;
+
+            img{
+                width: 88px;
+            }
         }
         @media screen and (max-width: $width-mobile) {
             display: flex;

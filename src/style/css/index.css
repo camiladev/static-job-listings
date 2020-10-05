@@ -9,20 +9,16 @@
   font-size: 15px;
   text-decoration: none; }
 
-/* Width max */
-/* Width max */
 /*Style Geral*/
 .App-header {
   background-color: #5ba4a4; }
   @media screen and (min-width: 1024px) {
     .App-header {
       background-image: url("../../images/bg-header-desktop.svg");
-      background-repeat: no-repeat;
-      height: 34vh; } }
+      height: 15vh; } }
   @media screen and (max-width: 375px) {
     .App-header {
       background-image: url("../../images/bg-header-mobile.svg");
-      background-repeat: no-repeat;
       height: 23vh; } }
 
 .App-body {
@@ -32,7 +28,7 @@
   align-items: baseline; }
   @media screen and (min-width: 1024px) {
     .App-body {
-      min-height: 66vh; } }
+      min-height: 85vh; } }
   @media screen and (max-width: 375px) {
     .App-body {
       min-height: 77vh; } }
@@ -83,7 +79,9 @@
 @media screen and (min-width: 1024px) {
   .logo-job {
     margin: 15px;
-    padding: 10px; } }
+    padding: 10px; }
+    .logo-job img {
+      width: 88px; } }
 @media screen and (max-width: 375px) {
   .logo-job {
     display: flex;
@@ -126,6 +124,11 @@
     cursor: pointer; }
     .jobOffer-description h2:hover {
       color: #5ba4a4; }
+  @media screen and (min-width: 1024px) {
+    .jobOffer-description {
+      border-bottom: 0px #7b8e8e solid;
+      padding-bottom: 0px;
+      margin-bottom: 0px; } }
   @media screen and (max-width: 375px) {
     .jobOffer-description {
       border-bottom: 1.8px #7b8e8e solid;
@@ -235,18 +238,5 @@
     margin: 10px; }
   .list-filter .remove:hover {
     background-color: #2c3a3a; }
-
-/*
-@media (min-width: 760px){
-    Desktop 
-    
-    @import 'desktop';
-}
-@media(max-width: $width-mobile){
-    /*Firt mobile 
-    @import 'mobile';
-}
-
-*/
 
 /*# sourceMappingURL=index.css.map */
