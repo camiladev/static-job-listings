@@ -69,12 +69,16 @@
 .inside-job {
   font-weight: 700;
   font-size: 15px;
-  color: #5ba4a4; }
+  color: #5ba4a4;
+  display: flex; }
   @media screen and (min-width: 1024px) {
     .inside-job {
-      display: flex;
       flex-direction: row;
       align-items: center; } }
+  @media screen and (max-width: 375px) {
+    .inside-job {
+      flex-direction: column;
+      align-items: inherit; } }
 
 @media screen and (min-width: 1024px) {
   .logo-job {
@@ -153,9 +157,13 @@
   flex-wrap: wrap; }
   @media screen and (min-width: 1024px) {
     .jobOffer-requisites {
-      text-align: right;
       width: 100%;
       justify-content: flex-end;
+      padding-right: 10px; } }
+  @media screen and (max-width: 375px) {
+    .jobOffer-requisites {
+      width: 100%;
+      justify-content: space-between;
       padding-right: 10px; } }
 
 .jobOffer-requisites .label-skills {
