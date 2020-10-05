@@ -121,7 +121,8 @@
 
 .jobOffer-description {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 20em; }
   .jobOffer-description h2 {
     font-weight: 700;
     padding: 10px 0 10px 0;

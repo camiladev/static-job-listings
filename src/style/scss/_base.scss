@@ -155,7 +155,7 @@
     .jobOffer-description{
         display: flex;
         flex-direction: column;
-        
+        width: 20em;
 
         h2{
             
@@ -172,6 +172,7 @@
             border-bottom: 0px $color-dark solid;
             padding-bottom: 0px;
             margin-bottom: 0px;
+            
         }
 
         @media screen and (max-width: $width-mobile) {
