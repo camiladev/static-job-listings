@@ -97,10 +97,10 @@
     }
 
     .logo-job{
+        padding: 10px;
         
         @media screen and (min-width: $width-desktop) {
             margin: 15px;
-            padding: 10px;
 
             img{
                 width: 88px;
@@ -108,7 +108,9 @@
         }
         @media screen and (max-width: $width-mobile) {
             display: flex;
-            margin-top: -2em;
+            margin-top: -3em;
+            margin-left: 0;
+            padding-left: 0;
 
             img{
                 width: 55px;
@@ -216,7 +218,7 @@
 
     @media screen and (max-width: $width-mobile) {
         width: 100%;
-        justify-content: space-between;
+        justify-content: end;
         padding-right: 10px;
     }
     

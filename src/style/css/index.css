@@ -80,18 +80,21 @@
       flex-direction: column;
       align-items: inherit; } }
 
-@media screen and (min-width: 1024px) {
-  .logo-job {
-    margin: 15px;
-    padding: 10px; }
-    .logo-job img {
-      width: 88px; } }
-@media screen and (max-width: 375px) {
-  .logo-job {
-    display: flex;
-    margin-top: -2em; }
-    .logo-job img {
-      width: 55px; } }
+.logo-job {
+  padding: 10px; }
+  @media screen and (min-width: 1024px) {
+    .logo-job {
+      margin: 15px; }
+      .logo-job img {
+        width: 88px; } }
+  @media screen and (max-width: 375px) {
+    .logo-job {
+      display: flex;
+      margin-top: -3em;
+      margin-left: 0;
+      padding-left: 0; }
+      .logo-job img {
+        width: 55px; } }
 
 .content-job {
   display: flex;
@@ -163,7 +166,7 @@
   @media screen and (max-width: 375px) {
     .jobOffer-requisites {
       width: 100%;
-      justify-content: space-between;
+      justify-content: end;
       padding-right: 10px; } }
 
 .jobOffer-requisites .label-skills {
