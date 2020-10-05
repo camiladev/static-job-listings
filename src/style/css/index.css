@@ -99,7 +99,8 @@
 .content-job {
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
   .content-job h1 {
     padding-right: 15px; }
   .content-job span {
@@ -117,9 +118,6 @@
     border-radius: 20px;
     padding: 10px;
     margin-right: 10px; }
-  @media screen and (min-width: 1024px) {
-    .content-job {
-      width: 28vw; } }
 
 .jobOffer-description {
   display: flex;
