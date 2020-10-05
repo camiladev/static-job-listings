@@ -17,12 +17,10 @@
         
         @media screen and (min-width: $width-desktop) {
             background-image: $url-imageDesktop;
-            background-repeat: no-repeat;
             height: $header-desktop;
         }
         @media screen and (max-width: $width-mobile) {
             background-image: $url-imageMobile;
-            background-repeat: no-repeat;
             height: $height-header;
         }
     }
@@ -161,6 +159,11 @@
             &:hover{
                 color: $color-primary;
             }
+        }
+        @media screen and (min-width: $width-desktop) {
+            border-bottom: 0px $color-dark solid;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
         }
 
         @media screen and (max-width: $width-mobile) {
