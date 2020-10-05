@@ -81,13 +81,18 @@
         font-weight: $font-weights-700;
         font-size: $font-size;
         color: $color-primary;
+        display: flex;
         //aqui
 
         @media screen and (min-width: $width-desktop) {
-            display: flex;
             flex-direction: row;
             align-items: center;
         }
+        @media screen and (max-width: $width-mobile) {
+            flex-direction: column;
+            align-items: inherit;
+        }
+        
        
     }
 
@@ -204,9 +209,14 @@
     flex-wrap: wrap;
 
     @media screen and (min-width: $width-desktop) {
-        text-align: right;
         width: 100%;
         justify-content: flex-end;
+        padding-right: 10px;
+    }
+
+    @media screen and (max-width: $width-mobile) {
+        width: 100%;
+        justify-content: space-between;
         padding-right: 10px;
     }
     
