@@ -14,44 +14,43 @@ class Requisites extends React.Component {
   }
 
   render(){
-    const langList = this.props.langList;
-    const toolsList = this.props.toolsList;
-    const role = this.props.role;
-    const level = this.props.level;
-
-    const languages = [];
+    const toolsList = this.props.toolsList;    
     const tools = [];
+    var filterSkills = [];    
 
-    langList.forEach((langList) => {
-        languages.push(          
-            <div 
-              className="label-skills"
-              onClick={()=>this.handleFilterClick(langList)}>{langList}</div>          
-        );
-    });
+    if(toolsList.length !== 0){
+      
+      filterSkills = this.props.langList + ',' + this.props.toolsList +
+                         ',' + this.props.role + ',' + this.props.level;
+      filterSkills = filterSkills.split(',');
 
-    if(toolsList !== ""){
-      toolsList.forEach((toolsList) => {
+      filterSkills.forEach((filterSkills) => {
         tools.push(          
             <div 
               className="label-skills"
-              onClick={()=>this.handleFilterClick(toolsList)}
-              >{toolsList}</div>          
+              onClick={()=>this.handleFilterClick(filterSkills)}
+              >{filterSkills}</div>          
+        );
+      });
+    }else {
+
+      filterSkills = this.props.langList + ',' + this.props.role + ',' + this.props.level;
+      filterSkills = filterSkills.split(',');
+
+      filterSkills.forEach((filterSkills) => {
+        tools.push(          
+            <div 
+              className="label-skills"
+              onClick={()=>this.handleFilterClick(filterSkills)}
+              >{filterSkills}</div>          
         );
       });
     };
 
     return(
       <> 
-        <div  
-              className="label-skills"
-              onClick={()=>this.handleFilterClick(role)}>{role}</div> 
-        <div  
-              className="label-skills"
-              onClick={()=>this.handleFilterClick(level)}>{level}</div>       
-        {languages}
         {tools}
-        </>
+      </>
       
     );
   }
