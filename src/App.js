@@ -26,7 +26,6 @@ class Requisites extends React.Component {
         languages.push(          
             <div 
               className="label-skills"
-              value={langList}
               onClick={()=>this.handleFilterClick(langList)}>{langList}</div>          
         );
     });
@@ -36,7 +35,6 @@ class Requisites extends React.Component {
         tools.push(          
             <div 
               className="label-skills"
-              value={toolsList}
               onClick={()=>this.handleFilterClick(toolsList)}
               >{toolsList}</div>          
         );
@@ -47,11 +45,9 @@ class Requisites extends React.Component {
       <> 
         <div  
               className="label-skills"
-              value={role}
               onClick={()=>this.handleFilterClick(role)}>{role}</div> 
         <div  
               className="label-skills"
-              value={level}
               onClick={()=>this.handleFilterClick(level)}>{level}</div>       
         {languages}
         {tools}
