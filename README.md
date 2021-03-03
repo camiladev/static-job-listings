@@ -3,6 +3,11 @@
 Projeto concluido dia 30/09/2020. <br />
 Veja em funcionamento <a href='https://static-job-listings-pi.vercel.app/' >aqui.</a>
 
+**Telas**
+![Screenshot_2021-03-03 Frontend Mentor Job Listings(1)](https://user-images.githubusercontent.com/63053569/109815651-a2581500-7c0e-11eb-8af2-f67fc83e77bc.png)
+
+![Screenshot_2021-03-03 Frontend Mentor Job Listings](https://user-images.githubusercontent.com/63053569/109815680-ac7a1380-7c0e-11eb-861d-051e47718cc7.png)
+
 ## Seja Bem-Vindo!
 
 Vamos falar um pouco sobre o projeto. <br />
